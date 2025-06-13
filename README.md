@@ -14,10 +14,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # 설정 파일들 심볼릭 링크 생성
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/oh-my-zsh-custom ~/.oh-my-zsh/custom
-
-# Ghostty 설정 디렉토리 생성 후 링크
-mkdir -p ~/.config/ghostty
-ln -sf ~/dotfiles/ghostty-config ~/.config/ghostty/config
+ln -sf ~/dotfiles/ghostty-config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
 # 설정 적용
 source ~/.zshrc
