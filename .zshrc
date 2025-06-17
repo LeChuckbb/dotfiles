@@ -20,11 +20,3 @@ export PATH="/Applications/WebStorm.app/Contents/MacOS:$PATH"
 ws() {
 	open -a "WebStorm" "$1"
 }
-
-# pnpm
-export PNPM_HOME="/Users/pjw/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
