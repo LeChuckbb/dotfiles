@@ -20,7 +20,15 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.
 # 설정 파일들 심볼릭 링크 생성
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/ghostty-config ~/Library/Application\ Support/com.mitchellh.ghostty/config
-ln -sf ~/.dotfiles/claude ~/.claude
+
+# Claude Code 설정 파일 링크 (개별 파일/폴더만 동기화)
+ln -sf ~/.dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sf ~/.dotfiles/claude/PRINCIPLES.md ~/.claude/PRINCIPLES.md
+ln -sf ~/.dotfiles/claude/RULES.md ~/.claude/RULES.md
+ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
+ln -sf ~/.dotfiles/claude/skills ~/.claude/skills
+ln -sf ~/.dotfiles/claude/agents ~/.claude/agents
+ln -sf ~/.dotfiles/claude/commands ~/.claude/commands
 
 # 설정 적용
 source ~/.zshrc
