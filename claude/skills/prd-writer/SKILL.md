@@ -4,8 +4,6 @@ category: documentation
 complexity: advanced
 ---
 
-# PRD Writer
-
 Generate Product Requirements Documents structured for Confluence documentation and Jira mapping.
 
 ## Activation Triggers
@@ -34,7 +32,6 @@ Create PRD following the template structure below.
 # [Project Name] PRD
 
 > **📌 Sub-task 생성 가이드**
-> 각 Story의 구현 세부사항(API 엔드포인트, 컴포넌트, 데이터베이스 로직 등)은 개발자가 작업 시점에 Jira Sub-task로 생성합니다.
 > 이 PRD는 **요구사항(What)**에 집중하며, **구현 방법(How)**은 개발자 판단에 맡깁니다.
 
 ---
@@ -53,9 +50,7 @@ Create PRD following the template structure below.
 
 ---
 
-# [Epic Name]
-
-## 1⃣ [Feature Area Name]
+# 1⃣ [Epic Name]
 
 ### 📘 Story 1.1: [Actor]는 [action]할 수 있다
 
@@ -73,7 +68,7 @@ Create PRD following the template structure below.
 
 ---
 
-## 2⃣ [Feature Area Name]
+# 2⃣ [Epic Name]
 
 ### 📘 Story 2.1: [Actor]는 [action]할 수 있다
 
@@ -112,7 +107,7 @@ Create PRD following the template structure below.
 
 | Jira Level | PRD Element | Example |
 |------------|-------------|---------|
-| **Epic** | Feature Area (1⃣, 2⃣, 3⃣) | "1⃣ Authentication" |
+| **Epic** | Top-level sections (# 1⃣, # 2⃣, # 3⃣) | "1⃣ Todo 생성 및 조회" |
 | **Story** | 📘 User Stories | "User can login with OAuth" |
 | **Sub-task** | Implementation details | "Create /auth/login endpoint" (개발자가 생성) |
 | **Task** | 🔧 Technical Tasks | "Setup OAuth provider" |
@@ -120,7 +115,7 @@ Create PRD following the template structure below.
 **Confluence**: PRD → Confluence page with checkboxes for progress tracking
 
 **Jira**:
-1. Create Epic per Feature Area (1⃣, 2⃣, etc.)
+1. Create Epic per top-level section (# 1⃣, # 2⃣, etc.)
 2. Create Stories from 📘 Stories
 3. Developers create Sub-tasks during implementation
 4. Create Tasks from 🔧 Technical Tasks
@@ -186,7 +181,7 @@ Use for infrastructure, cross-cutting concerns, documentation.
 When generating PRD:
 1. Ask discovery questions (unless comprehensive description provided)
 2. Generate complete PRD with template structure
-3. Use emoji hierarchy: 📌 (header), 1⃣ (feature area), 📘 (story), 🔧 (task), ✅ (completion)
+3. Use emoji hierarchy: 📌 (header), 1⃣ (epic), 📘 (story), 🔧 (task), ✅ (completion)
 4. Include checkboxes for all criteria
 5. Specify permissions and error codes
 6. Provide Jira/Confluence usage guidance
