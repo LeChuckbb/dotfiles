@@ -11,6 +11,7 @@ Additional capabilities available through Skills in ~/.claude/skills/
 # Core Framework (Always Loaded)
 @PRINCIPLES.md
 @RULES.md
+@AUGMENTED.md
 
 # ===================================================
 # Available Skills (Auto-Activated On-Demand)
@@ -40,3 +41,22 @@ Skills activate automatically based on context:
 
 Skills are stored in ~/.claude/skills/ with automatic activation.
 Each skill has clear trigger conditions and descriptions for optimal routing.
+
+# ===================================================
+# AUGMENTED TDD Workflow
+# ===================================================
+
+## ⚠️ Kent Beck's TDD + Tidy First Methodology
+
+**Core Reference**: @AUGMENTED.md
+> 구조적/행동적 변경 분리, TDD 사이클, 커밋 규칙
+
+### 🔄 Available Commands
+
+**TDD 사이클**: `/aug:red` (테스트) → `/aug:green` (구현) → `/aug:refactor` (정리)
+**커밋**: `/aug:commit-structural` (리팩토링) | `/aug:commit-behavioral` (기능/수정)
+**도구**: `/aug:status` (상태 확인)
+
+**Golden Rule**: 구조적 변경과 행동적 변경을 절대 같은 커밋에 섞지 않기
+
+Commands 위치: `~/.dotfiles/claude/commands/augmented/`
