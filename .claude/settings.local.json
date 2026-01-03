@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(ln:*)",
-      "Bash(readlink:*)"
+      "Bash(readlink:*)",
+      "mcp__sequential-thinking__sequentialthinking"
     ],
     "deny": [],
     "ask": []
