@@ -1,79 +1,86 @@
-# about this repo
+# Dotfiles
 
-zsh(oh-my-zsh), ghostty, Claude Code 설정을 여러 환경에서 동기화하는 목적
+zsh, ghostty, Claude Code 설정 동기화
 
-# how to use
+---
 
-## 첫 설치 (Initial Setup)
-
-### 1단계: Claude Code 설치
-
-Claude Code가 설치되지 않았다면 먼저 설치합니다.
-
-### 2단계: 저장소 클론 및 환경 구성
+## 첫 설치
 
 ```bash
-# dotfiles 저장소 클론
+# 저장소 클론
 git clone https://github.com/LeChuckbb/dotfiles.git ~/.dotfiles
 
-# Oh My Zsh 설치 (선택사항 - 아직 안 했다면)
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Zsh 플러그인 설치 (선택사항)
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
-
-### 3단계: 심볼릭 링크 설정
-
-```bash
-# Zsh & Ghostty 설정
+# Zsh & Ghostty
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/ghostty-config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
-# Claude Code 설정 파일
+# Claude Code
 ln -sf ~/.dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
 ln -sf ~/.dotfiles/claude/PRINCIPLES.md ~/.claude/PRINCIPLES.md
 ln -sf ~/.dotfiles/claude/RULES.md ~/.claude/RULES.md
 ln -sf ~/.dotfiles/claude/AUGMENTED.md ~/.claude/AUGMENTED.md
 ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
-ln -sf ~/.dotfiles/claude/skills ~/.claude/skills
 ln -sf ~/.dotfiles/claude/agents ~/.claude/agents
 
-# Claude Code commands (경로 단축)
 mkdir -p ~/.claude/commands
 ln -sf ~/.dotfiles/claude/commands/sc ~/.claude/commands/sc
 ln -sf ~/.dotfiles/claude/commands/aug ~/.claude/commands/aug
 
-# 설정 적용
+mkdir -p ~/.claude/skills
+for dir in ~/.dotfiles/claude/skills/*/; do
+  ln -sf "$dir" ~/.claude/skills/"$(basename "$dir")"
+done
+
 source ~/.zshrc
 ```
 
 ---
 
-## 업데이트 (Update / Re-sync)
-
-최신 변경사항을 반영할 때는 다음만 실행:
+## 업데이트
 
 ```bash
-# 최신 설정 가져오기
 cd ~/.dotfiles && git pull
 
-# 심볼릭 링크 재생성
-ln -sf ~/.dotfiles/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/ghostty-config ~/Library/Application\ Support/com.mitchellh.ghostty/config
-
-mkdir -p ~/.claude/commands
-ln -sf ~/.dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
-ln -sf ~/.dotfiles/claude/PRINCIPLES.md ~/.claude/PRINCIPLES.md
-ln -sf ~/.dotfiles/claude/RULES.md ~/.claude/RULES.md
-ln -sf ~/.dotfiles/claude/AUGMENTED.md ~/.claude/AUGMENTED.md
-ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
-ln -sf ~/.dotfiles/claude/skills ~/.claude/skills
-ln -sf ~/.dotfiles/claude/agents ~/.claude/agents
-ln -sf ~/.dotfiles/claude/commands/sc ~/.claude/commands/sc
-ln -sf ~/.dotfiles/claude/commands/aug ~/.claude/commands/aug
-
-# 설정 적용
-source ~/.zshrc
+# 새 skill 추가된 경우만
+for dir in ~/.dotfiles/claude/skills/*/; do
+  [ ! -e ~/.claude/skills/"$(basename "$dir")" ] && ln -sf "$dir" ~/.claude/skills/"$(basename "$dir")"
+done
 ```
+
+---
+
+## 문제 해결
+
+**skills 안 보일 때:**
+
+```bash
+ls -la ~/.claude/skills/  # 상태 확인
+```
+
+올바른 구조:
+```
+~/.claude/skills/
+├── frontend-dev-guidelines -> ~/.dotfiles/claude/skills/frontend-dev-guidelines/
+└── skill-writer -> ~/.dotfiles/claude/skills/skill-writer/
+```
+
+잘못된 구조 (skills 안에 skills 링크):
+```
+~/.claude/skills/
+└── skills -> ~/.dotfiles/claude/skills   # ❌
+```
+
+**수정:**
+```bash
+# 잘못된 링크 제거
+[ -L ~/.claude/skills/skills ] && rm ~/.claude/skills/skills
+
+# 개별 링크 재설정
+for dir in ~/.dotfiles/claude/skills/*/; do
+  name=$(basename "$dir")
+  [ -d ~/.claude/skills/"$name" ] && [ ! -L ~/.claude/skills/"$name" ] && mv ~/.claude/skills/"$name" ~/.claude/skills/"$name".backup
+  ln -sf "$dir" ~/.claude/skills/"$name"
+done
+```
+
+> **Note**: skills는 폴더 전체 링크 대신 개별 링크 사용 (Claude Code 업데이트 안전 + 로컬 skill 혼용 가능)

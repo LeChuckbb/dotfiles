@@ -3,7 +3,8 @@
     "allow": [
       "Bash(ln:*)",
       "Bash(readlink:*)",
-      "mcp__sequential-thinking__sequentialthinking"
+      "mcp__sequential-thinking__sequentialthinking",
+      "mcp__serena__list_dir"
     ],
     "deny": [],
     "ask": []
