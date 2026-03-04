@@ -1,62 +1,42 @@
-# SuperClaude Entry Point
+# Claude Code Configuration
 
-This file serves as the entry point for the SuperClaude framework.
-Core behavioral framework loaded globally.
-Additional capabilities available through Skills in ~/.claude/skills/
+Superpowers 플러그인 기반 설정. TDD + Tidy First 워크플로우 포함.
 
 # ===================================================
-# SuperClaude Framework Components
+# Core Framework
 # ===================================================
 
-# Core Framework (Always Loaded)
-@PRINCIPLES.md
-@RULES.md
 @AUGMENTED.md
 
 # ===================================================
-# Available Skills (Auto-Activated On-Demand)
+# AUGMENTED TDD Workflow (Tidy First)
 # ===================================================
 
-Skills activate automatically based on context:
-
-## Behavioral Mode Skills
-- **mode-brainstorming**: Interactive requirements discovery
-- **mode-introspection**: Meta-cognitive analysis
-- **mode-orchestration**: Intelligent tool selection
-- **mode-task-management**: Hierarchical task organization with memory
-- **mode-token-efficiency**: Symbol-enhanced communication
-- **mode-deep-research**: Comprehensive research with adaptive strategies
-- **mode-business-panel**: Multi-expert business analysis (multi-file)
-
-## Research & Analysis Skills
-- **research-config**: Deep research configuration (multi-file)
-- **mcp-analysis-tools**: Context7 + Sequential + Tavily (multi-file)
-
-## Development & Testing Skills
-- **mcp-ui-tools**: Magic + Playwright for frontend
-- **mcp-code-tools**: Morphllm + Serena for code operations
-
-## System Reference Skills
-- **flags-system**: SuperClaude behavioral flags reference
-
-Skills are stored in ~/.claude/skills/ with automatic activation.
-Each skill has clear trigger conditions and descriptions for optimal routing.
-
-# ===================================================
-# AUGMENTED TDD Workflow
-# ===================================================
-
-## ⚠️ Kent Beck's TDD + Tidy First Methodology
+## Kent Beck's Tidy First Methodology
 
 **Core Reference**: @AUGMENTED.md
-> 구조적/행동적 변경 분리, TDD 사이클, 커밋 규칙
+> 구조적/행동적 변경 분리, 커밋 규칙
 
-### 🔄 Available Commands
+### Available Commands
 
-**TDD 사이클**: `/aug:red` (테스트) → `/aug:green` (구현) → `/aug:refactor` (정리)
-**커밋**: `/aug:commit-structural` (리팩토링) | `/aug:commit-behavioral` (기능/수정)
-**도구**: `/aug:status` (상태 확인)
+**리팩토링**: `/aug:refactor` (구조 개선)
+**커밋**: `/aug:commit-structural` (구조적 변경) | `/aug:commit-behavioral` (행동적 변경)
+**상태**: `/aug:status` (TDD 상태 확인)
+
+**TDD 사이클**: Superpowers `superpowers:test-driven-development` 스킬 사용
 
 **Golden Rule**: 구조적 변경과 행동적 변경을 절대 같은 커밋에 섞지 않기
 
-Commands 위치: `~/.dotfiles/claude/commands/augmented/`
+Commands 위치: `~/.claude/commands/aug/`
+
+# ===================================================
+# Custom Skills
+# ===================================================
+
+프로젝트별 스킬 (`~/.claude/skills/`):
+
+- **composition-patterns**: React 컴포지션 패턴
+- **frontend-dev-guidelines**: React/TypeScript 프론트엔드 가이드
+- **prd-writer**: PRD 작성 가이드
+- **react-best-practices**: React/Next.js 성능 최적화
+- **web-design-guidelines**: 웹 UI/접근성 가이드

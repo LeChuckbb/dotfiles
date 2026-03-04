@@ -16,14 +16,10 @@ ln -sf ~/.dotfiles/ghostty-config ~/Library/Application\ Support/com.mitchellh.g
 
 # Claude Code
 ln -sf ~/.dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
-ln -sf ~/.dotfiles/claude/PRINCIPLES.md ~/.claude/PRINCIPLES.md
-ln -sf ~/.dotfiles/claude/RULES.md ~/.claude/RULES.md
 ln -sf ~/.dotfiles/claude/AUGMENTED.md ~/.claude/AUGMENTED.md
 ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
-ln -sf ~/.dotfiles/claude/agents ~/.claude/agents
 
 mkdir -p ~/.claude/commands
-ln -sf ~/.dotfiles/claude/commands/sc ~/.claude/commands/sc
 ln -sf ~/.dotfiles/claude/commands/aug ~/.claude/commands/aug
 
 mkdir -p ~/.claude/skills
@@ -60,8 +56,11 @@ ls -la ~/.claude/skills/  # 상태 확인
 올바른 구조:
 ```
 ~/.claude/skills/
+├── composition-patterns -> ~/.dotfiles/claude/skills/composition-patterns/
 ├── frontend-dev-guidelines -> ~/.dotfiles/claude/skills/frontend-dev-guidelines/
-└── skill-writer -> ~/.dotfiles/claude/skills/skill-writer/
+├── prd-writer -> ~/.dotfiles/claude/skills/prd-writer/
+├── react-best-practices -> ~/.dotfiles/claude/skills/react-best-practices/
+└── web-design-guidelines -> ~/.dotfiles/claude/skills/web-design-guidelines/
 ```
 
 잘못된 구조 (skills 안에 skills 링크):
