@@ -16,7 +16,6 @@ ln -sf ~/.dotfiles/ghostty-config ~/Library/Application\ Support/com.mitchellh.g
 
 # Claude Code
 ln -sf ~/.dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
-ln -sf ~/.dotfiles/claude/AUGMENTED.md ~/.claude/AUGMENTED.md
 ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
 
 mkdir -p ~/.claude/commands

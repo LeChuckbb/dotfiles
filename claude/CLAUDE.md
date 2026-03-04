@@ -1,42 +1,24 @@
-# Claude Code Configuration
+# Preferences
 
-Superpowers 플러그인 기반 설정. TDD + Tidy First 워크플로우 포함.
+- 한국어로 응답
 
-# ===================================================
-# Core Framework
-# ===================================================
+# Tidy First (Kent Beck)
 
-@AUGMENTED.md
+구조적 변경과 행동적 변경을 절대 같은 커밋에 섞지 말 것.
 
-# ===================================================
-# AUGMENTED TDD Workflow (Tidy First)
-# ===================================================
+- **구조적(STRUCTURAL)**: 동작 변경 없이 코드 재배치 (이름 변경, 메서드 추출, 코드 이동)
+- **행동적(BEHAVIORAL)**: 실제 기능 추가 또는 수정
+- 둘 다 필요하면 구조적 변경을 먼저. 전후로 테스트 실행하여 동작 불변 검증.
 
-## Kent Beck's Tidy First Methodology
+## 커밋 규칙
 
-**Core Reference**: @AUGMENTED.md
-> 구조적/행동적 변경 분리, 커밋 규칙
+모든 테스트 통과 + 린터 경고 해결 + 단일 논리적 단위일 때만 커밋.
+커밋 메시지에 structural/behavioral 명시. 작고 빈번한 커밋 선호.
 
-### Available Commands
+## Commands
 
-**리팩토링**: `/aug:refactor` (구조 개선)
-**커밋**: `/aug:commit-structural` (구조적 변경) | `/aug:commit-behavioral` (행동적 변경)
-**상태**: `/aug:status` (TDD 상태 확인)
-
-**TDD 사이클**: Superpowers `superpowers:test-driven-development` 스킬 사용
-
-**Golden Rule**: 구조적 변경과 행동적 변경을 절대 같은 커밋에 섞지 않기
-
-Commands 위치: `~/.claude/commands/aug/`
-
-# ===================================================
-# Custom Skills
-# ===================================================
-
-프로젝트별 스킬 (`~/.claude/skills/`):
-
-- **composition-patterns**: React 컴포지션 패턴
-- **frontend-dev-guidelines**: React/TypeScript 프론트엔드 가이드
-- **prd-writer**: PRD 작성 가이드
-- **react-best-practices**: React/Next.js 성능 최적화
-- **web-design-guidelines**: 웹 UI/접근성 가이드
+- `/aug:refactor` — 구조 개선 (구조적 변경만)
+- `/aug:commit-structural` — 구조적 변경 커밋
+- `/aug:commit-behavioral` — 행동적 변경 커밋
+- `/aug:status` — TDD 상태 확인
+- TDD 사이클은 Superpowers `superpowers:test-driven-development` 스킬 사용
