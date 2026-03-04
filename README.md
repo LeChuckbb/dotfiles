@@ -18,9 +18,6 @@ ln -sf ~/.dotfiles/ghostty-config ~/Library/Application\ Support/com.mitchellh.g
 ln -sf ~/.dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
 ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
 
-mkdir -p ~/.claude/commands
-ln -sf ~/.dotfiles/claude/commands/aug ~/.claude/commands/aug
-
 mkdir -p ~/.claude/skills
 for dir in ~/.dotfiles/claude/skills/*/; do
   ln -sf "$dir" ~/.claude/skills/"$(basename "$dir")"

@@ -15,10 +15,3 @@
 모든 테스트 통과 + 린터 경고 해결 + 단일 논리적 단위일 때만 커밋.
 커밋 메시지에 structural/behavioral 명시. 작고 빈번한 커밋 선호.
 
-## Commands
-
-- `/aug:refactor` — 구조 개선 (구조적 변경만)
-- `/aug:commit-structural` — 구조적 변경 커밋
-- `/aug:commit-behavioral` — 행동적 변경 커밋
-- `/aug:status` — TDD 상태 확인
-- TDD 사이클은 Superpowers `superpowers:test-driven-development` 스킬 사용
