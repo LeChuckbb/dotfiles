@@ -5,8 +5,9 @@
   },
   "enabledPlugins": {
     "claude-hud@claude-hud": true,
-    "superpowers@claude-plugins-official": true
+    "claude-md-management@claude-plugins-official": true
   },
   "language": "Korean",
-  "alwaysThinkingEnabled": false
+  "alwaysThinkingEnabled": false,
+  "skipDangerousModePermissionPrompt": true
 }

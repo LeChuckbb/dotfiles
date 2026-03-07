@@ -28,3 +28,5 @@ export PATH="$PATH:/Users/mac/.local/bin"
 
 # Created by `pipx` on 2025-11-04 13:28:14
 export PATH="$PATH:/Users/mac/Library/Python/3.9/bin"
+
+alias clauded="claude --dangerously-skip-permissions"
