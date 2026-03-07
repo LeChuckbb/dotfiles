@@ -30,3 +30,5 @@ export PATH="$PATH:/Users/mac/.local/bin"
 export PATH="$PATH:/Users/mac/Library/Python/3.9/bin"
 
 alias clauded="claude --dangerously-skip-permissions"
+alias claude='claude --model opus --permission-mode plan'
+alias vault='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian\ Vault'
