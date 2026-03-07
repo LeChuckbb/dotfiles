@@ -4,7 +4,18 @@
       "Bash(ln:*)",
       "Bash(readlink:*)",
       "mcp__sequential-thinking__sequentialthinking",
-      "mcp__serena__list_dir"
+      "mcp__serena__list_dir",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:blog.fsck.com)",
+      "Bash(ls:*)",
+      "Read(//Users/mac/.dotfiles/claude/**)",
+      "Read(//Users/mac/.claude/**)",
+      "Read(//Users/mac/**)",
+      "Bash(python3:*)",
+      "Bash(claude plugin:*)",
+      "Bash(cat:*)",
+      "Bash(echo:*)",
+      "Bash(zsh:*)"
     ],
     "deny": [],
     "ask": []
