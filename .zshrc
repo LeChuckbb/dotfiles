@@ -29,6 +29,6 @@ export PATH="$PATH:/Users/mac/.local/bin"
 # Created by `pipx` on 2025-11-04 13:28:14
 export PATH="$PATH:/Users/mac/Library/Python/3.9/bin"
 
-alias clauded="claude --model opus --permission-mode plan --dangerously-skip-permissions"
-alias claude='claude --model opus --permission-mode plan'
+alias clauded="claude --model opusplan --dangerously-skip-permissions"
+alias claude='claude --model opusplan'
 alias vault='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Obsidian\ Vault'
